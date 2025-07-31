@@ -41,6 +41,7 @@ use std::ops::{Deref, DerefMut};
 ///
 /// # Thread safety
 /// `PermissiveReadLock<T>` is `Sync` if `T: Send + Sync`.
+#[derive(Debug, Default)]
 pub struct PermissiveReadLock<T> {
     cell: UnsafeCell<T>,
     lock: RwLock<()>,
